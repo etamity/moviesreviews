@@ -6,7 +6,7 @@ import './FavouritesPage.scss';
 /**
  * Search page to search movies by keywords
  */
-export class FavouritesPageView extends Component {
+class FavouritesPageView extends Component {
 
     constructor(props) {
         super(props);

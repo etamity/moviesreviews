@@ -9,7 +9,7 @@ import './DetailPage.scss';
  * @param {*} props 
  * Detail page to show movie detail information
  */
-export const DetailPageView = (props) => {
+const DetailPageView = (props) => {
     const movie = (props.location && props.location.movie) || JSON.parse(localStorage.getItem('movie_store'));
 
     // If movie object doesn't exist, go back to search page

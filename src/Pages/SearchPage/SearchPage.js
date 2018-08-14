@@ -10,7 +10,7 @@ import './SearchPage.scss';
 /**
  * Search page to search movies by keywords
  */
-export class SearchPageView extends Component {
+class SearchPageView extends Component {
 
   constructor(props) {
     super(props);

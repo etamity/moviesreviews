@@ -1,6 +1,6 @@
 # Movie Reviews
 
-Preview: http://moviesearch2018.s3-website.eu-west-2.amazonaws.com/#/searchpage
+Preview: http://moviesreview2018.s3-website.eu-west-2.amazonaws.com/#/searchpage
 
 ## Screenshots
 ![Screenshot](/screenshot.png?raw=true)
@@ -37,6 +37,10 @@ Please refer `AppContainer.js` file about dynamic routing.
 ## State Management
 
 There are two reducers in this project, `search` reducer for storing fetched data from api, and `app` reducer to store application local data, such as favourites list, footer information, nav items.
+[Here](https://github.com/etamity/moviesearch) is another implement without using redux. 
+
+# Services
+`MovieService.js` is a api wrapper that fetch data and put them into redux store, once redux store update, all view layer where subscribed the state, will also trigger re-render. You can wrap tv show api by extending the services. For example: Simply create a new file call `TvService.js`, and wrap the api and put them into store.
 
 ## Components
 

@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { FavouritesPageView } from './FavouritesPage';
+import { FavouritesPage } from './FavouritesPage';
 import { createMemoryHistory } from 'history';
+import configureStore from 'redux-mock-store'
+import { 
+    MOCK_INIT_STATE
+} from 'Reducers/mockdata';
 
 jest.mock('Reducers/search/actions', () => {
     return {
@@ -29,13 +33,12 @@ jest.mock('Reducers/app/actions', () => {
         }
     }
 });
-
 function setup() {
-    const history = createMemoryHistory('/favouritespage');
-    const location = {
-        pathname: '/detailpage',
-    }
-    return <FavouritesPageView favourites={[]} history={history} location={location} />;
+    const history = createMemoryHistory('/detailpage');
+    const mockstore = configureStore([]);
+    const store = mockstore(MOCK_INIT_STATE);
+    return <FavouritesPage store={store} favourites={[]} history={history} location={location} />;
+
 }
 
 describe('<FavouritesPageView> Start Component Test', () => {

@@ -17,13 +17,13 @@ class RouterWrapper extends Component {
       const path =  this.props.baseRoute ? pathWithBase : '/' + url.toLowerCase();
       return <Route onChange={this.props.onChange} path={path} name={child.key} key={index} component={(props) => {
           const Child = child.type;
-        return <Child {...child.props} {...props} store={this.props.store} root={root} />} }/>
+        return <Child key={index} {...child.props} {...props} store={this.props.store} root={root} />} }/>
     });
     
     return (
       <Switch>
         {children}
-        <Redirect from="/" to={this.props.indexRoute} />
+        <Redirect from="/" to={this.props.indexRoute || '/'} />
       </Switch>)
   }
 }

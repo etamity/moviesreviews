@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { SearchAction } from 'Reducers/search/actions';
 import './AppContainer.scss';
 
-export class AppContainer extends Component {
+class AppContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -126,7 +126,6 @@ const mapStateToProps = state => {
     user: state.app.user
   }
 }
-
 
 const ReduxContainer = connect(
   mapStateToProps

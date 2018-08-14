@@ -1,7 +1,9 @@
 import React from 'react';
+import RouterWrapper from './RouterWrapper';
+import { shallow } from 'enzyme';
+import * as Pages from 'Pages';
 import ReactDOM from 'react-dom';
-import { SearchPage } from './SearchPage';
-import { createMemoryHistory } from 'history';
+import { MemoryRouter } from 'react-router';
 import configureStore from 'redux-mock-store'
 import { 
     MOCK_INIT_STATE
@@ -34,19 +36,25 @@ jest.mock('Reducers/app/actions', () => {
     }
 });
 
-jest.mock('react-infinite-scroller');
 
 function setup() {
-    const history = createMemoryHistory('/detailpage');
     const mockstore = configureStore([]);
     const store = mockstore(MOCK_INIT_STATE);
-    return <SearchPage store={store} history={history} location={location} />;
-
+    return <MemoryRouter initialEntries={['/random']}>
+            <RouterWrapper store={store} root={{}} >
+                {
+                    Object.keys(Pages).map((name, index) => {
+                        const Page = Pages[name];
+                        return <Page key={index} className={name} />
+                    })
+                }
+            </RouterWrapper>
+        </MemoryRouter>;
 }
-describe('<SearchPage> Start Component Test', () => {
-    it('renders without crashing', () => {
-        const wrapper = setup();
-        const div = document.createElement('div');
+describe('<RouteWrapper> Start Component Test', () => {
+    it('Rhould renders page routes without crashing', () => {
+        const div = document.createElement('div')
+        const wrapper = shallow(setup());
         ReactDOM.render(wrapper, div);
         ReactDOM.unmountComponentAtNode(div);
     });
