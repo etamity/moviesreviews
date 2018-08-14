@@ -1,5 +1,5 @@
-import search from './search.js';
-import app from './app.js';
+import search from './search';
+import app from './app';
 const reducers = {
     app,
     search

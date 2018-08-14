@@ -8,10 +8,10 @@ import GenresMenu from 'Components/GenresMenu/GenresMenu';
 import Footer from 'Components/Footer/Footer';
 import SearchBar from 'Components/SearchBar/SearchBar';
 import { connect } from 'react-redux';
-import { SearchAction } from 'Reducers/search';
+import { SearchAction } from 'Reducers/search/actions';
 import './AppContainer.scss';
 
-class AppContainer extends Component {
+export class AppContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {

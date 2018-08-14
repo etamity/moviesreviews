@@ -1,6 +1,6 @@
 import themoviedb from 'Libs/themoviedb';
-import { SearchAction } from 'Reducers/search';
-import { AppAction } from 'Reducers/app';
+import { SearchAction } from 'Reducers/search/actions';
+import { AppAction } from 'Reducers/app/actions';
 
 const MovieService = {
 	/**

@@ -4,13 +4,13 @@ import Loader from 'Components/Loader/Loader';
 import ScrollerContainer from 'react-infinite-scroller';
 import MovieService from 'Services/MovieService';
 import { connect } from 'react-redux';
-import { AppAction } from 'Reducers/app';
+import { AppAction } from 'Reducers/app/actions';
 
 import './SearchPage.scss';
 /**
  * Search page to search movies by keywords
  */
-class SearchPageView extends Component {
+export class SearchPageView extends Component {
 
   constructor(props) {
     super(props);
@@ -79,7 +79,6 @@ class SearchPageView extends Component {
               this.showMovieDetail(movie);
             }}
             onButtonClick={(e) => {
-              console.log(this.props.favourites, this.props.favourites.includes(movie));
               if (this.props.favourites.includes(movie)) {
                 AppAction.removeFavourite(movie);
               } else {

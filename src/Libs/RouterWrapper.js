@@ -10,12 +10,12 @@ class RouterWrapper extends Component {
   render() {
 
     const root = this.props.root;
-    const children = React.Children.map(this.props.children, (child) => {
+    const children = React.Children.map(this.props.children, (child, index) => {
       const params = child.type.params || '' ;
       const url = child.key + params;
       const pathWithBase = [this.props.baseRoute, url].join('/').toLowerCase();
       const path =  this.props.baseRoute ? pathWithBase : '/' + url.toLowerCase();
-      return <Route onChange={this.props.onChange} path={path} name={child.key} key={child.key} component={(props) => {
+      return <Route onChange={this.props.onChange} path={path} name={child.key} key={index} component={(props) => {
           const Child = child.type;
         return <Child {...child.props} {...props} store={this.props.store} root={root} />} }/>
     });

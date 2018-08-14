@@ -1,15 +1,6 @@
-import keyMirror from 'keymirror';
-import { store } from 'App';
+import { AppActionTypes } from './actions';
 
-export const AppActionTypes = keyMirror({
-    UPDATE_FAVOURITES: null,
-    APPEND_FAVOURITES: null,
-    REMOVE_FAVOURITE: null,
-    UPDATE_ERROR: null,
-    UPDATE_KEYWORDS: null
-});
-
-let initState = {
+export const initState = {
     footer: {
         label: 'Movies Revies',
         copyright: '©Copyright 2018'
@@ -21,7 +12,7 @@ let initState = {
     },
     logo: 'Mobie Revies',
     error: ''
-}
+};
 
 export default function update(state = initState, action) {
     switch (action.type) {
@@ -37,37 +28,5 @@ export default function update(state = initState, action) {
             return Object.assign({}, state, { keywords: action.payload });
         default:
             return state;
-    }
-}
-
-export const AppAction = {
-    updateFavourites: (favourites) => {
-        const action = {
-            type: AppActionTypes.UPDATE_FAVOURITES,
-            payload: favourites
-        }
-        store.dispatch(action);
-    },
-
-    appendFavourite: (favourite) => {
-        const action = {
-            type: AppActionTypes.APPEND_FAVOURITES,
-            payload: favourite
-        }
-        store.dispatch(action);
-    },
-    removeFavourite: (favourite) => {
-        const action = {
-            type: AppActionTypes.REMOVE_FAVOURITE,
-            payload: favourite
-        }
-        store.dispatch(action);
-    },
-    updateError: (error) => {
-        const action = {
-            type: AppActionTypes.UPDATE_ERROR,
-            payload: error
-        }
-        store.dispatch(action);
     }
 }

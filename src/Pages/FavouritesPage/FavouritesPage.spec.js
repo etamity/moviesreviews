@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SearchPageView } from './SearchPage';
+import { FavouritesPageView } from './FavouritesPage';
 import { createMemoryHistory } from 'history';
-import { Provider } from 'react-redux';
 
 jest.mock('Reducers/search/actions', () => {
     return {
@@ -31,28 +30,15 @@ jest.mock('Reducers/app/actions', () => {
     }
 });
 
-jest.mock('react-infinite-scroller');
-
 function setup() {
-    const history = createMemoryHistory('/searchpage');
-    const location = { pathname: '/searchpage' };
-    const props = {
-        keywords: '',
-        genresId: 0,
-        movies: {
-            page: 0,
-            results: [],
-            total_pages: 0,
-            total_results: 0
-          },
-        genres: [],
-        error: '',
-        favourites: []
-    };
-    return <SearchPageView {...props} history={history} location={location} />;
-
+    const history = createMemoryHistory('/favouritespage');
+    const location = {
+        pathname: '/detailpage',
+    }
+    return <FavouritesPageView favourites={[]} history={history} location={location} />;
 }
-describe('<SearchPage> Start Component Test', () => {
+
+describe('<FavouritesPageView> Start Component Test', () => {
     it('renders without crashing', () => {
         const wrapper = setup();
         const div = document.createElement('div');

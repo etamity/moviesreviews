@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import MovieCard from 'Components/MovieCard/MovieCard';
 import { connect } from 'react-redux';
-import { AppAction } from 'Reducers/app';
+import { AppAction } from 'Reducers/app/actions';
 import './FavouritesPage.scss';
 /**
  * Search page to search movies by keywords
  */
-class FavouritesPageView extends Component {
+export class FavouritesPageView extends Component {
 
     constructor(props) {
         super(props);
