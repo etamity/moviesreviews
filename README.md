@@ -36,17 +36,7 @@ Please refer `AppContainer.js` file about dynamic routing.
 
 ## State Management
 
-As we don't use Redux, so I implement lightweight state management mechanic, treat `AppContainer.js` state as global store, and passing `store` data through `RouterWrapper` to each pages, there are two pages on the project, `SearchPage` and `DetailPage`, both of them will have a `store` props, you can acces store such like 
-
-`const store = props.store;`
-
-Also `RouterWrapper` will pass `AppContainer` to every pages, so you can access the container from the props.
-
-`const root = props.root;`
-
-The `root` is `AppContainer` itself, and then you can update global store in the page:
-
-`root.setState({xxx:xxx});`
+There are two reducers in this project, `search` reducer for storing fetched data from api, and `app` reducer to store application local data, such as favourites list, footer information, nav items.
 
 ## Components
 
